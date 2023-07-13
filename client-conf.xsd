@@ -6,7 +6,7 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="certificatePath" minOccurs="1" maxOccurs="1" type="xs:string" />
-				<xs:element name="server-channel-group">
+				<xs:element name="server-channel-group" minOccurs="1" maxOccurs="unbounded">
 					<xs:complexType mixed="true">
 						<xs:attribute name="channel-group-id" use="required" type="xs:string" />
 						<xs:attribute name="connection-num" type="t_connection-num" use="required" />
