@@ -18,7 +18,7 @@
 				</xs:element>
 				<xs:element name="server" maxOccurs="1" minOccurs="1">
 					<xs:complexType>
-						<xs:attribute name="host" type="xs:string" use="required" />
+						<xs:attribute name="host" type="t_required_string" use="required" />
 						<xs:attribute name="tcp-port" type="t_port" use="required"/>
 						<xs:attribute name="shutdownWhiteList"
 							type="xs:string" use="required" />
@@ -39,8 +39,8 @@
 						<xs:sequence>
 							<xs:element name="user" maxOccurs="unbounded">
 								<xs:complexType>
-									<xs:attribute name="username" type="xs:string" />
-									<xs:attribute name="password" type="xs:string" />
+									<xs:attribute name="username" type="t_required_string" />
+									<xs:attribute name="password" type="t_required_string" />
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
@@ -55,12 +55,12 @@
 									<xs:sequence>
 										<xs:element name="user" maxOccurs="unbounded">
 											<xs:complexType>
-												<xs:attribute name="username" type="xs:string" />
-												<xs:attribute name="password" type="xs:string" />
+												<xs:attribute name="username" type="t_required_string" />
+												<xs:attribute name="password" type="t_required_string" />
 											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
-									<xs:attribute name="name" type="xs:string"></xs:attribute>
+									<xs:attribute name="name" type="t_required_string"></xs:attribute>
 								</xs:complexType>
 							</xs:element>
 
@@ -134,6 +134,11 @@
 		<xs:restriction base="xs:integer">
 			<xs:minInclusive value="0" />
 			<xs:maxInclusive value="65535" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="t_required_string">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
