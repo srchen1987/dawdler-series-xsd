@@ -8,7 +8,7 @@
 			<xs:sequence>
 				<xs:element name="remote-load" maxOccurs="1" minOccurs="0">
 					<xs:complexType>
-						<xs:attribute name="package" type="xs:string" use="required"/>
+						<xs:attribute name="package" type="t_required_string" use="required"/>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="scanner" maxOccurs="1" minOccurs="0">
@@ -26,7 +26,7 @@
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="package-path"
-											maxOccurs="unbounded" type="xs:string" />
+											maxOccurs="unbounded" type="t_required_string" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -40,7 +40,7 @@
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="mapper" minOccurs="1" maxOccurs="unbounded"
-											type="xs:string"/>
+											type="t_required_string"/>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -53,9 +53,9 @@
 							<xs:element name="datasource-expression"
 								maxOccurs="unbounded">
 								<xs:complexType>
-									<xs:attribute name="id" type="xs:string" use="required"/>
+									<xs:attribute name="id" type="t_required_string" use="required"/>
 									<xs:attribute name="latent-expression"
-										type="xs:string" use="required"/>
+										type="t_required_string" use="required"/>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
@@ -66,9 +66,9 @@
 						<xs:sequence>
 							<xs:element name="decision" maxOccurs="unbounded">
 								<xs:complexType>
-									<xs:attribute name="mapping" type="xs:string" use="required"/>
+									<xs:attribute name="mapping" type="t_required_string" use="required"/>
 									<xs:attribute name="latent-expression-id"
-										type="xs:string" use="required"/>
+										type="t_required_string" use="required"/>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
@@ -77,4 +77,9 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	<xs:simpleType name="t_required_string">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
